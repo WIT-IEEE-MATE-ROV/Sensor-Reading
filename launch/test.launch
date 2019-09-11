@@ -1,0 +1,4 @@
+<launch>
+<node pkg="mpu9250" name="ReadSensorUI" type="ReadSensorUI.py output="screen">
+</node>
+</launch>
