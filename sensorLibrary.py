@@ -1,5 +1,3 @@
-# Import Statements
-#test
 import board6;
 import busio78;
 import adafruit_fxas21002c;
