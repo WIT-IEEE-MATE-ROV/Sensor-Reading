@@ -1,5 +1,3 @@
-#Ttest
-
 import sensorLibrary.py
 import time;
 i = 1;
