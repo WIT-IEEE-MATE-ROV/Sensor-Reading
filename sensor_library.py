@@ -1,3 +1,5 @@
+from math import sqrt
+
 import board
 import busio
 import adafruit_fxas21002c
@@ -27,7 +29,7 @@ class Sensor:
 
     @property
     def accel_mag(self):
-        return None
+        return calc_magnitude(self.accel_x, self.accel_y, self.accel_z)
 
     # getGyro reads gyroscope values
     @property
@@ -44,7 +46,8 @@ class Sensor:
 
     @property
     def gyro_mag(self):
-        return None
+        return calc_magnitude(self.gyro_x, self.gyro_y, self.gyro_z)
+
     # getMag reads magnetometer values
     @property
     def mag_x(self):
@@ -60,7 +63,12 @@ class Sensor:
 
     @property
     def mag_mag(self):
-        return None
+        return calc_magnitude(self.mag_x, self.mag_y, self.mag_z)
+
+
+def calc_magnitude(x, y, z):
+    return sqrt((x ** 2) + (y ** 2) + (z ** 2))
+
 
 class SensorAxis(Enum):
     X = 0
