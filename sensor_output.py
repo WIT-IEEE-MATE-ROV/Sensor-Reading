@@ -1,3 +1,5 @@
+import board
+import busio
 import time as t
 import os
 
@@ -6,7 +8,8 @@ from sensor_library import Sensor
 while True:
     t.sleep(5)
     os.system('clear')
-    sensor = Sensor()
+    i2c = busio.I2C(board.SCL, board.SDA)
+    sensor = Sensor(i2c)
     print(' Accelerometer reads magnitude: {}'
           '\tAcceleration x is: {}'
           '\tAcceleration y is: {}'

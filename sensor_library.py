@@ -1,16 +1,13 @@
-from math import sqrt
-
-import board
-import busio
 import adafruit_fxas21002c
 import adafruit_fxos8700
 
 from enum import Enum
+from filtering import calc_magnitude
 
 
 class Sensor:
-    def __init__(self):
-        self._i2c = busio.I2C(board.SCL, board.SDA)
+    def __init__(self, i2c):
+        self.i2c = i2c
         self._sensor_gyro = adafruit_fxas21002c.FXAS21002C(self._i2c)
         self._sensor = adafruit_fxos8700.FXOS8700(self._i2c)
 
@@ -64,10 +61,6 @@ class Sensor:
     @property
     def mag_mag(self):
         return calc_magnitude(self.mag_x, self.mag_y, self.mag_z)
-
-
-def calc_magnitude(x, y, z):
-    return sqrt((x ** 2) + (y ** 2) + (z ** 2))
 
 
 class SensorAxis(Enum):
