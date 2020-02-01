@@ -1,0 +1,6 @@
+[submodule "fxas21002c"]
+	path = fxas21002c
+	url = https://github.com/mrivnak/Adafruit_CircuitPython_FXAS21002C.git
+[submodule "fxos8700"]
+	path = fxos8700
+	url = https://github.com/mrivnak/Adafruit_CircuitPython_FXOS8700.git
